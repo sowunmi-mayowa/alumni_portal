@@ -94,7 +94,9 @@
 #submit{
 	    padding: 10px 25px;
     border-radius: 10px;
-    border-style: none;
+	border-style: none;
+	background-color: #fff;
+	color: black;
     cursor: pointer;
 }
 

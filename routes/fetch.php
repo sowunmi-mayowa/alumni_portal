@@ -1,3 +1,23 @@
+<style>
+	#search-output form{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	#search-output input{
+		margin: 10px 0px;
+		width: 50%;
+		padding: 10px 5px;
+		border-style: none;
+		border-radius: 10px;
+	}
+	#search-output input[type="submit"]{
+		background-color: green;
+		color: white;
+	}
+</style>
+
 <?php
 	require 'connection.php';
 
@@ -14,17 +34,17 @@
 			if(isset($_POST['submit'])){
 				while ($row = mysqli_fetch_array($query_run)) {
 					?>
-						<form method="POST" id="details">
-							<input type="text" name="first_name" value="<?php echo $row['first_name']?> ">
-							<input type="text" name="middle_name" value="<?php echo $row['middle_name']?> ">
-							<input type="text" name="last_name" value="<?php echo $row['last_name']?> ">
-							<input type="text" name="matric_number" value="<?php echo $row['matric_number']?> ">
-							<input type="text" name="department" value="<?php echo $row['department']?> ">
-							<input type="text" name="level" value="<?php echo $row['level']?> ">
+						<form method="GET" id="details" action="routes/payment.php">
+						<h3>FETCHED RESULT</h3>
+							<label for="name">Surname</label>
+							<input type="text" name="first_name" value="<?php echo $row['first_name']?> " disabled>
+							<input type="text" name="middle_name" value="<?php echo $row['middle_name']?> " disabled>
+							<input type="text" name="last_name" value="<?php echo $row['last_name']?> " disabled>
+							<input type="text" name="matric_number" value="<?php echo $row['matric_number']?> " disabled>
+							<input type="text" name="department" value="<?php echo $row['department']?> " disabled>
+							<input type="text" name="level" value="<?php echo $row['level']?> " disabled>
+							<input type="submit" value="proceed to payment">
 						</form>
-                        <form action="routes/payment.php" method="GET">
-                            <input type="submit" value="proceed to payment">
-                        </form>
 					<?php
 			}
 		}
