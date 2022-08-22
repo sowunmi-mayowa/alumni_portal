@@ -1,12 +1,4 @@
-<?php
-	require 'connection.php';
 
-
-	if (isset($_POST['submit'])) {
-		$query = " SELECT * FROM students WHERE matric_number = '$matric' ";
-		$query_run = mysqli_query($conn, $query);
-	}
-?>
 
 <!DOCTYPE html>
 <html>
@@ -20,31 +12,9 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<div id="navigation">
-		<nav>
-			<div class="name">the federal polytechnic ilaro</div>
-			<div>
-				<ul class="navs">
-					<li>Home</li>
-					<li>Portal</li>
-					<li>Contact</li>
-				</ul>
-				<div class="mob-icon">
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" 	stroke="currentColor" stroke-width="2">
-					  <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
-					</svg>
-				</div>
-			</div>
-		</nav> 
-		<div class="mob-nav">
-			<ul style="padding-top: 80px;">
-				<li>Home</li>
-				<li>Portal</li>
-				<li>Contact</li>
-			</ul>
-		</div>
-	</div>
-
+	<?php
+		include_once('routes/navs.php')
+	?>
 	<section id="search-id">
 		<div class="search-content">
 			<h1>Fetch Details</h1>
@@ -55,24 +25,9 @@
 		</div>
 	</section>
 
-	<section id="search-output">
-		<?php
-			if(isset($_POST['submit'])){
-				while ($row = mysqli_fetch_assoc($query_run)) {
-					?>
-						<form method="POST">
-							<input type="text" name="first_name" value="<?php echo $row['first_name']?> ">
-							<input type="text" name="middle_name" value="<?php echo $row['middle_name']?> ">
-							<input type="text" name="last_name" value="<?php echo $row['last_name']?> ">
-							<input type="text" name="matric_number" value="<?php echo $row['matric_number']?> ">
-							<input type="text" name="department" value="<?php echo $row['department']?> ">
-							<input type="text" name="level" value="<?php echo $row['level']?> ">
-						</form>
-					<?php
-			}
-		}
-		?>
-	</section>
+	<?php
+		include_once('routes/fetch.php');
+	?>
 
 	<script type="text/javascript" src="js/script.js"></script>
 </body>
