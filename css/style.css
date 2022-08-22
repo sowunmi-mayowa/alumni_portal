@@ -1,0 +1,114 @@
+*{
+	padding: 0;
+	margin:0;
+	box-sizing: border-box;
+	font-family: 'Lato', sans-serif;
+}
+#navigation{
+	padding: 20px 40px;
+	background-image: linear-gradient(42deg, #008000, #07f507);
+}
+#navigation nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-transform: uppercase;
+	color: #fff;
+}
+#navigation nav .name{
+	font-weight: bolder;
+}
+#navigation nav li{
+	display: inline-block;
+	list-style: none;
+	font-weight: bolder;
+	padding: 0px 10px;
+	transition: all .5s ease-in;
+	cursor: pointer;
+}
+#navigation nav li:hover{
+	transform: scale(1.2);
+}
+
+#navigation .mob-icon{
+	display: none;
+}
+.mob-nav{
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100vh;
+	width: 200px;
+	cursor: pointer;
+	font-weight: bolder;
+	text-transform: uppercase;
+	z-index: -1;
+	background-image: linear-gradient(42deg, #008000, #07f507);
+	transition: all .5s ease-in;
+	display: none;
+}
+.mob-nav li{
+	color: white;
+	list-style: none;
+	text-align: center;
+	margin: 10px 0px;
+}
+.mob-nav li:hover{
+	transform: scale(1.2);
+}
+
+/*search bar*/
+#search-id{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50vh;
+}
+.search-content{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(42deg, #008000, #07f507);
+    padding: 50px;
+    border-radius: 30px;
+    flex-direction: column;
+    box-shadow: -1px 0px 6px 4px #80808082;
+}
+.search-content h1{
+	color: white;
+	text-transform: uppercase;
+}
+.search-content form{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#matric-number{
+	height: 30px;
+    border: 2px solid white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+#submit{
+	    padding: 10px 25px;
+    border-radius: 10px;
+    border-style: none;
+    cursor: pointer;
+}
+
+/*media quaries*/
+@media (max-width: 425px){
+	#navigation nav .name{
+		font-size: 12px;
+	}
+	#navigation .navs{
+		display: none;
+	}
+	#navigation .mob-icon{
+	display: block;
+	width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
