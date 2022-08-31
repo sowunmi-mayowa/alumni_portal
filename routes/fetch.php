@@ -15,15 +15,20 @@
 	#search-output input[type="submit"]{
 		background-color: green;
 		color: white;
+		cursor: pointer;
 	}
 </style>
 
 <?php
 	require 'connection.php';
 
-
 	if (isset($_POST['submit'])) {
+
+		session_start();
+		$_SESSION['matric_number'] = $_POST['matric_number'];
+
 		$matric = $_POST['matric_number'];
+		
 		$query = " SELECT * FROM students WHERE matric_number = '$matric' ";
 		$query_run = mysqli_query($conn, $query);
 	}
@@ -33,10 +38,10 @@
 		<?php
 			if(isset($_POST['submit'])){
 				while ($row = mysqli_fetch_array($query_run)) {
+					$_SESSION['first_name'] = $row['first_name'];
 					?>
-						<form method="GET" id="details" action="routes/payment.php">
+						<form method="POST" id="details" action="routes/payment.php">
 						<h3>FETCHED RESULT</h3>
-							<label for="name">Surname</label>
 							<input type="text" name="first_name" value="<?php echo $row['first_name']?> " disabled>
 							<input type="text" name="middle_name" value="<?php echo $row['middle_name']?> " disabled>
 							<input type="text" name="last_name" value="<?php echo $row['last_name']?> " disabled>
