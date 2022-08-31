@@ -1,3 +1,10 @@
+<?php
+    //require'./fetch.php';
+    session_start();
+    $matric = $_SESSION['matric_number'];
+    $first_name = $_SESSION['first_name'];
+  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +16,10 @@
 <body>
     <?php
         include_once('./navs.php');
+        echo $matric;
+        echo $first_name;
     ?>
+
+   
 </body>
 </html>
