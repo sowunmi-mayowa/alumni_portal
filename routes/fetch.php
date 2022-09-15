@@ -25,10 +25,7 @@
 	if (isset($_POST['submit'])) {
 
 		session_start();
-		$_SESSION['matric_number'] = $_POST['matric_number'];
-
 		$matric = $_POST['matric_number'];
-		
 		$query = " SELECT * FROM students WHERE matric_number = '$matric' ";
 		$query_run = mysqli_query($conn, $query);
 	}
@@ -39,6 +36,12 @@
 			if(isset($_POST['submit'])){
 				while ($row = mysqli_fetch_array($query_run)) {
 					$_SESSION['first_name'] = $row['first_name'];
+					$_SESSION['middle_name'] = $row['middle_name'];
+					$_SESSION['last_name'] = $row['last_name'];
+					$_SESSION['matric_number'] = $row['matric_number'];
+					$_SESSION['department'] = $row['department'];
+					$_SESSION['level'] = $row['level'];
+					$_SESSION['email'] = htmlspecialchars($row['email']);
 					?>
 						<form method="POST" id="details" action="routes/payment.php">
 						<h3>FETCHED RESULT</h3>
@@ -48,6 +51,7 @@
 							<input type="text" name="matric_number" value="<?php echo $row['matric_number']?> " disabled>
 							<input type="text" name="department" value="<?php echo $row['department']?> " disabled>
 							<input type="text" name="level" value="<?php echo $row['level']?> " disabled>
+							<input type="email" name="email" value="<?php echo $row['email']?> " disabled>
 							<input type="submit" value="proceed to payment">
 						</form>
 					<?php

@@ -92,7 +92,7 @@
     margin-bottom: 10px;
 }
 #submit{
-	    padding: 10px 25px;
+	padding: 10px 25px;
     border-radius: 10px;
 	border-style: none;
 	background-color: #fff;
@@ -112,5 +112,6 @@
 	display: block;
 	width: 30px;
     height: 30px;
-    cursor: pointer;
+	cursor: pointer;
+	}
 }
