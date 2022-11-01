@@ -1,7 +1,16 @@
+
+.test-bg{
+	background: url('../bgs/Wave-8.3s-1404px.svg');
+	background-position: center;
+	background-size: cover;
+
+}
 .container h1{
     text-transform: uppercase;
     text-align: center;
     font-weight: 800;
+    color: white;
+    text-shadow: -1px 1px 6px black;
 }
 .container form{
     display: flex;
@@ -16,6 +25,8 @@
     border-style: none;
     border-radius: 10px;
     text-transform: uppercase;
+    background: white;
+    box-shadow: -1px 1px 4px 0px #00000085;
 }
 .container input[type="submit"]{
     background-color: green;

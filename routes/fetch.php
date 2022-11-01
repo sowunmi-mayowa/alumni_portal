@@ -11,6 +11,8 @@
 		padding: 10px 5px;
 		border-style: none;
 		border-radius: 10px;
+		background: white;
+    box-shadow: -1px 1px 4px 0px #00000085;
 	}
 	#search-output input[type="submit"]{
 		background-color: green;
@@ -41,10 +43,11 @@
 					$_SESSION['matric_number'] = $row['matric_number'];
 					$_SESSION['department'] = $row['department'];
 					$_SESSION['level'] = $row['level'];
+					$_SESSION['phone_number'] = $row['phone_number'];
 					$_SESSION['email'] = htmlspecialchars($row['email']);
 					?>
 						<form method="POST" id="details" action="routes/payment.php">
-						<h3>FETCHED RESULT</h3>
+						<h3 style="color: #fff; text-shadow: -1px 1px 5px black">FETCHED RESULT</h3>
 							<input type="text" name="first_name" value="<?php echo $row['first_name']?> " disabled>
 							<input type="text" name="middle_name" value="<?php echo $row['middle_name']?> " disabled>
 							<input type="text" name="last_name" value="<?php echo $row['last_name']?> " disabled>
@@ -52,7 +55,8 @@
 							<input type="text" name="department" value="<?php echo $row['department']?> " disabled>
 							<input type="text" name="level" value="<?php echo $row['level']?> " disabled>
 							<input type="email" name="email" value="<?php echo $row['email']?> " disabled>
-							<input type="submit" value="proceed to payment">
+							<input type="phone_number" name="phone_number" value="<?php echo $row['phone_number']?> " disabled>
+							<input type="submit" id="fetch" value="proceed to payment">
 						</form>
 					<?php
 			}

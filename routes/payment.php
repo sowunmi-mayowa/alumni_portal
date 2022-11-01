@@ -8,9 +8,9 @@
     $email = $_SESSION['email'];
     $department = $_SESSION['department'];
     $level = $_SESSION['level'];
+    $phone_number = $_SESSION['phone_number'];
 
     if(isset($_POST['submit'])){
-        $phone = htmlspecialchars($_POST['number']);
         
         //integrate flutterwave
         $endpoint = "https://api.flutterwave.com/v3/payments"; 
@@ -22,13 +22,16 @@
             "customer" => array(
                 "email" => $email,
                 "name" => $first_name . " " . $middle_name. " " . $last_name,
-                "phone_number" => $phone
+                "phone_number" => $phone_number
             ),
             "customization" => array(
                 "title" => "The federal polytechnic ilaro",
                 "description" => "Payment of alumni fee ",
             ),
-            "redirect_url" => "htpps://flutterwave.com/verify.php"
+            "meta" => array(
+                "title" => "The federal polytechnic ilaro Alumni fee payment"
+            ),
+            "redirect_url" => "http://localhost/project/verify.php"
         );
 
         //init url handler
@@ -83,7 +86,8 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <?php
+   <div class="test-bg">
+   <?php
         include_once('./navs.php');
     ?>
     <div class="container">
@@ -97,10 +101,11 @@
             <input type="text" name="level" id="level" value="<?php echo $level ?>" disabled>
             <input type="email" name="email" id="email" value="<?php echo $email ?>" disabled>
             <input type="text" name="amount" id="amount" value="2000" disabled>
-            <input type="number" name="number" id="number" placeholder="090 999 999 999">
+            <input type="number" name="number" id="number"  value="<?php echo $phone_number ?>" disabled>
             <input type="submit" name="submit" id="submit" value="make payment">
             </form>
     </div>
+   </div>
    <script src="../js/script.js"></script>
 </body> 
 </html>
