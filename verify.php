@@ -1,4 +1,5 @@
 <?php
+    require 'connection.php';
     if(isset($_GET['transaction_id']) AND isset($_GET['status']) AND isset($_GET['tx_ref'])){
         $trans_id = htmlspecialchars($_GET['transaction_id']);
         $trans_status = htmlspecialchars($_GET['status']);
@@ -37,17 +38,19 @@
 
         
         // echo "<pre>". $run . "<pre>";
-        
+        session_start();
         $result = json_decode($run);
 
         $status = $result->data->status;
-        $id = $result->data->id;
-        $amount = $result->data->charged_amount;
-        $name = $result->data->customer->name;
-        $email = $result->data->customer->email;
-        $number = $result->data->customer->phone_number;
+        $_SESSION['id'] = $result->data->id;
+        $_SESSION['amount'] = $result->data->charged_amount;
+        $_SESSION['name'] = $result->data->customer->name;
+        $_SESSION['email'] = $result->data->customer->email;
+        $_SESSION['number']= $result->data->customer->phone_number;
+        $_SESSION['date'] = $result->data->customer->created_at;
+        $_SESSION['reference'] = $result->data->tx_ref;
         
-        if(($status != $trans_status) OR ($id != $trans_id)){
+        if(($status != $trans_status) OR ($_SESSION['id'] != $trans_id)){
             header("location: index.php");
             exit;
         }
@@ -56,7 +59,29 @@
         header("location: index.php");
         exit;
     }
+    
+    //$_SESSION['name'] = $_POST['name'];
+    if (isset($_POST['submit'])) {
+       $name = $_SESSION['name'];
+       $email = $_SESSION['email'];
+       $id = $_SESSION['id'];
+       $number = $_SESSION['number'];
+       $amount = $_SESSION['amount'];
+       $date = $_SESSION['date'];
+       $reference = $_SESSION['reference'];
 
+       $query = "insert into `records`(`payment_id`, `amount_paid`, `name`, `email`, `number`, `date`, `reference`) values ('$id', '$amount', '$name', '$email', '$number', '$date', '$reference' )";
+
+       $run = mysqli_query($conn, $query);
+       if ($run) {
+           echo "working";
+       }
+       else{
+           echo "wrong";
+       }
+
+
+    }
 ?>
 
 <!DOCTYPE html>
@@ -84,31 +109,40 @@
         </div>
 
         <div class="container">
-            <form>
+            <form method="POST">
                 <h3 style="margin: 10px 0px; text-transform:capitalize;">Payment successful</h3>
                 <div>
                     <label for="name">Name: </label>
-                    <input type="text" value="<?php echo $name ?>" disabled>
+                    <input type="text" name="name" value="<?php echo $_SESSION['name'] ?>"  disabled>
                 </div>
                 <div>
                     <label for="name">Email: </label>
-                    <input type="text" value="<?php echo $email ?>" disabled>
+                    <input type="text" value="<?php echo $_SESSION['email'] ?>" name="email">
                 </div>
                 <div>
                     <label for="id">Transaction Id: </label>
-                    <input type="text" value="<?php echo $id ?>" disabled>
+                    <input type="text" value="<?php echo $_SESSION['id'] ?>" name="id" disabled>
                 </div>
                 <div>
                     <label for="name">Phone Number: </label>
-                    <input type="text" value="<?php echo $number ?>" disabled>
+                    <input type="text" value="<?php echo $_SESSION['number'] ?>" name="number" disabled>
                 </div>
                 <div>
                     <label for="name">Amount Paid: </label>
-                    <input type="text" value="<?php echo $amount ?>" disabled>
+                    <input type="text" value="<?php echo $_SESSION['amount'] ?>" name="amount" disabled>
             </div>
+            <div style="display: none;">
+                    <label for="name">Date: </label>
+                    <input type="text" value="<?php echo $_SESSION['date'] ?>" name="date" disabled>
+                </div>
+                <div style="display: none;">
+                    <label for="name">reference: </label>
+                    <input type="text" value="<?php echo $_SESSION['reference'] ?>" name="reference" disabled>
+                </div>
+            <input type="submit" value="Print REceipt" id="print-btn" name="submit">
         </form>
         
-        <button id="print-btn">Print Recript</button>
+       
         </div>
         <script type="text/javascript" src="js/script.js"></script>
     </div>

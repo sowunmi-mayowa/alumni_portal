@@ -28,15 +28,6 @@
 		include_once('routes/fetch.php');
 	?>
 	</div>
-	<!-- <button id="print">jlm</button>
-	<script>
-	
-	
-	const prints = document.querySelector("#print");
-	prints.addEventListener("click", () => {
-		window.print();
-	})
-	</script> -->
 
 	<footer id="contact">
 		<div class="container">
