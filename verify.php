@@ -50,6 +50,7 @@
         $_SESSION['date'] = $result->data->customer->created_at;
         $_SESSION['reference'] = $result->data->tx_ref;
         
+        
         if(($status != $trans_status) OR ($_SESSION['id'] != $trans_id)){
             header("location: index.php");
             exit;
@@ -69,8 +70,9 @@
        $amount = $_SESSION['amount'];
        $date = $_SESSION['date'];
        $reference = $_SESSION['reference'];
+       $matric = $_SESSION['matric_number'];
 
-       $query = "insert into `records`(`payment_id`, `amount_paid`, `name`, `email`, `number`, `date`, `reference`) values ('$id', '$amount', '$name', '$email', '$number', '$date', '$reference' )";
+       $query = "insert into `records`(`payment_id`, `amount_paid`, `name`,`matric_number` , `email`, `number`, `date`, `reference`) values ('$id', '$amount', '$name', '$matric', '$email', '$number', '$date', '$reference' )";
 
        $run = mysqli_query($conn, $query);
        if ($run) {
@@ -78,6 +80,7 @@
        }
        else{
            echo "wrong";
+           echo mysqli_error($conn);
        }
 
 
@@ -118,6 +121,10 @@
                 <div>
                     <label for="name">Email: </label>
                     <input type="text" value="<?php echo $_SESSION['email'] ?>" name="email">
+                </div>
+                <div>
+                    <label for="name">Matric No: </label>
+                    <input type="text" value="<?php echo $_SESSION['matric_number'] ?>" name="matric">
                 </div>
                 <div>
                     <label for="id">Transaction Id: </label>
