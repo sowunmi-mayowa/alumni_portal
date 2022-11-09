@@ -146,6 +146,9 @@
                     <label for="name">reference: </label>
                     <input type="text" value="<?php echo $_SESSION['reference'] ?>" name="reference" disabled>
                 </div>
+                <div class="signature">
+                    <img src="./bgs/siign.png" alt="signature">
+                </div>
             <input type="submit" value="Print REceipt" id="print-btn" name="submit">
         </form>
         
