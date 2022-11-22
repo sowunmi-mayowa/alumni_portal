@@ -7,7 +7,7 @@
 	}
 	#search-output input{
 		margin: 10px 0px;
-		width: 50%;
+		width: 30%;
 		padding: 10px 5px;
 		border-style: none;
 		border-radius: 10px;

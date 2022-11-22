@@ -20,9 +20,10 @@
 }
 .container input{
     margin: 10px 0px;
-    width: 50%;
+    width: 30%;
     padding: 10px 5px;
     border-style: none;
+    text-transform: capitalize;
     border-radius: 10px;
     text-transform: uppercase;
     background: white;
@@ -33,3 +34,9 @@
     color: white;
     cursor: pointer;
 }
+/* @media(min-width: 425px){
+    .container input{
+        width: 35%;
+        text-transform: capitalize;
+    }
+} */

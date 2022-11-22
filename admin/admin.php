@@ -38,19 +38,7 @@
             flex-direction: column;
         }
         table{
-            text-align: center;
             background: white;
-            padding: 20px 10px;
-            border-radius: 30px;
-            box-shadow: -1px -2px 16px 3px #00000085;
-            margin: 0px 30px;
-        }
-        th,td{
-            border: 1px solid black;
-            border-radius: 5px;
-        }
-        th,td{
-            padding: 5px;
         }
         h1{
             text-transform: uppercase;
@@ -67,15 +55,34 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css" integrity="sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="test-bg" style="height: 100vh;">
-        <?php
-            include_once("../routes/navs.php")
-        ?>
+    <div id="navigation">
+		<nav>
+			<div class="name">
+                <img src="../bgs/header-logo.png" alt="poly logo" style="max-width: 300px;">
+            </div>
+			<div>
+				<ul class="navs">
+					<li>Home</li>
+					<li><a href="logout.php">logout</a></li>
+				</ul>
+				<div class="mob-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" 	stroke="currentColor" stroke-width="2">
+					  <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+					</svg>
+				</div>
+			</div>
+		</nav>
         <div class="container">
-            <h1>students records</h1>
-            <table>
+            <h1 class="text-center">students records</h1>
+            <form action="export.php" method="POST">
+                <input type="submit" value="Download CSV" name="export" class="btn btn-success px-4 py-2 my-4">
+            </form>
+            <div class="table-responsive">
+            <table class="table">
                 <tr>
                     <th>id</th>
                     <th>payment id</th>
@@ -118,6 +125,7 @@
                         }
                 ?>
             </table>
+            </div>
         </div>
     </div>
 </body>

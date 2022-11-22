@@ -5,25 +5,25 @@ session_start();
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
        $username = $_POST['username'];
        $password = $_POST['password'];
-    }
 
        if (!empty($username) && !empty($password) && !is_numeric($username)) {
         
-           $query = "select * from admin where username = '$username' limit 1";
+        $query = "select * from admin where username = '$username' limit 1";
 
-           $result = mysqli_query($conn, $query);
-           if ($result && mysqli_num_rows($result) > 0) {
-               $user_data = mysqli_fetch_assoc($result);
-               if ($user_data['password'] == $password) {
-                   $_SESSION['user_id'] = $user_data['user_id'];
-                   header("location: admin.php");
-                   die;
-               }
-           }
-           header("Location: index.php");
-           die;
-          // echo "wrong username or password";
+        $result = mysqli_query($conn, $query);
+            if ($result && mysqli_num_rows($result) > 0) {
+                $user_data = mysqli_fetch_assoc($result);
+                if ($user_data['password'] == $password) {
+                    $_SESSION['user_id'] = $user_data['user_id'];
+                    header("location: admin.php");
+                    die;
+                }
+            }
+            header("Location: index.php");
+            die;
        }
+    }
+
        else{
            echo "wrong username or password";   
        }
@@ -43,6 +43,17 @@ session_start();
             justify-content: center;
             align-items: center;
             margin-top: 50px;
+        }
+        header .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            text-transform: uppercase;
+                }
+        header img{
+            height: auto;
+            max-width: 30%;
         }
         form{
             display: flex;
@@ -76,9 +87,11 @@ session_start();
 </head>
 <body>
    <div class="test-bg" style="height: 100vh;">
-        <?php
-            include_once('../routes/navs.php');
-        ?>
+   <header>
+        <div class="container">
+            <img src="../bgs/header-logo.png" alt="ilaro logo" >
+        </div>
+    </header>
 
         <div class="container">
             <form method="POST">

@@ -75,13 +75,13 @@
        $query = "insert into `records`(`payment_id`, `amount_paid`, `name`,`matric_number` , `email`, `number`, `date`, `reference`) values ('$id', '$amount', '$name', '$matric', '$email', '$number', '$date', '$reference' )";
 
        $run = mysqli_query($conn, $query);
-       if ($run) {
-           echo "working";
-       }
-       else{
-           echo "wrong";
-           echo mysqli_error($conn);
-       }
+    //    if ($run) {
+    //        echo "working";
+    //    }
+    //    else{
+    //        echo "wrong";
+    //        echo mysqli_error($conn);
+    //    }
 
 
     }
@@ -154,7 +154,7 @@
         
        
         </div>
-        <script type="text/javascript" src="js/script.js"></script>
+        <script type="text/javascript" src="js/print.js"></script>
     </div>
 </body>
 </html>

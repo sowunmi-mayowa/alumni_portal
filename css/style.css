@@ -24,6 +24,7 @@
 }
 #navigation nav .name{
 	font-weight: bolder;
+	font-size: larger;
 }
 #navigation nav li{
 	display: inline-block;
@@ -53,7 +54,6 @@
 	cursor: pointer;
 	font-weight: bolder;
 	text-transform: uppercase;
-	z-index: -1;
 	background-image: linear-gradient(42deg, #008000, #07f507);
 	transition: all .5s ease-in;
 	display: none;
@@ -74,16 +74,18 @@
 	justify-content: center;
 	align-items: center;
 	height: 50vh;
+	flex-direction: column;
 }
 .search-content{
 	display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(42deg, #008000, #07f507);
+    /* background-image: linear-gradient(42deg, #008000, #07f507); */
     padding: 50px;
     border-radius: 30px;
     flex-direction: column;
-    box-shadow: -1px 0px 6px 4px #80808082;
+	box-shadow: -1px 0px 20px 0px #00000082;
+	margin-bottom: 60px;
 }
 .search-content h1{
 	color: white;
@@ -133,10 +135,10 @@ footer .container div{
 		display: none;
 	}
 	#navigation .mob-icon{
-	display: block;
-	width: 30px;
-    height: 30px;
-	cursor: pointer;
+		display: block;
+		width: 30px;
+		height: 30px;
+		cursor: pointer;
 	}
 	footer .container{
 		flex-direction: column;

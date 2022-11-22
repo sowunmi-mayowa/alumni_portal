@@ -11,37 +11,24 @@
 </head>
 <body>
 	<div class="test-bg">
-	<?php
-		include_once('routes/navs.php')
-	?>
-	<section id="search-id">
-		<div class="search-content">
-			<h1>Fetch Details</h1>
-			<form method="POST">
-				<input type="text" id="matric-number" name="matric_number" placeholder="enter your matric number">
-				<input type="submit" name="submit" id="submit" value="confirm" style="padding: 10px 20px; border-radius: 20px; border-width: inherit;">
-			</form>
-		</div>
-	</section>
+		<?php
+			include_once('routes/navs.php')
+		?>
+		<section id="search-id">
+			<div class="search-content">
+				<h1>Fetch Details</h1>
+				<form method="POST">
+					<input type="text" id="matric-number" name="matric_number" placeholder="enter your matric number" required>
+					<input type="submit" name="submit" id="submit" value="confirm" style="padding: 10px 20px; border-radius: 20px; border-width: inherit;">
+				</form>
+			</div>
+		</section>
 
-	<?php
-		include_once('routes/fetch.php');
-	?>
+		<?php
+			include_once('routes/fetch.php');
+		?>
 	</div>
 
-	<footer id="contact">
-		<div class="container">
-			<div>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, saepe officiis? Ipsa est quam, nihil nam unde, eligendi accusantium accusamus eius incidunt voluptatum iste dolores, enim officia odit esse in. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis sapiente aliquid asperiores quas, cupiditate suscipit tempore magni repellendus ut facere accusamus beatae ipsam mollitia enim laboriosam in corporis eos voluptates.
-			</div>
-			<div>
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit porro voluptatum tempora placeat. Eaque accusamus voluptatum facere reprehenderit, harum suscipit voluptatem eligendi ea accusantium, tempora, natus ab molestias doloremque vel! lore
-			</div>
-			<div>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto voluptas ipsam molestiae voluptatibus quis, sunt illum saepe dignissimos voluptates ab blanditiis cupiditate adipisci, harum sit exercitationem, magni dicta ad necessitatibus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit voluptatem delectus explicabo blanditiis nemo totam fugiat reprehenderit eaque! Fugiat possimus voluptatibus cum explicabo nostrum, minima quaerat corporis enim labore molestias!
-			</div>
-		</div>
-	</footer>
 	<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

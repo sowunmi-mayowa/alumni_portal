@@ -48,6 +48,17 @@
             align-items: center;
             margin-top: 50px;
         }
+        header .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        header img{
+            height: auto;
+            max-width: 30%;
+        }
         form{
             display: flex;
             justify-content: center;
@@ -80,9 +91,11 @@
 </head>
 <body>
    <div class="test-bg" style="height: 100vh;">
-        <?php
-            include_once('../routes/navs.php');
-        ?>
+   <header>
+        <div class="container">
+            <img src="../bgs/header-logo.png" alt="ilaro logo" >
+        </div>
+    </header>
 
         <div class="container">
             <form method="POST">
