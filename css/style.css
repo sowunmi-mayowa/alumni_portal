@@ -127,7 +127,7 @@ footer .container div{
 	padding: 15px;
 }
 /*media quaries*/
-@media (max-width: 425px){
+@media (max-width: 600px){
 	#navigation nav .name{
 		font-size: 12px;
 	}
