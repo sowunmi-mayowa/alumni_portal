@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 .test-bg{
 	background: url('../bgs/Wave-8.3s-1404px.svg');
@@ -39,3 +40,47 @@
         width: 70%;
     }
 }
+=======
+
+.test-bg{
+	background: url('../bgs/Wave-8.3s-1404px.svg');
+	background-position: center;
+	background-size: cover;
+
+}
+.container h1{
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 800;
+    color: white;
+    text-shadow: -1px 1px 6px black;
+}
+.container form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.container input{
+    margin: 10px 0px;
+    width: 30%;
+    padding: 10px 5px;
+    border-style: none;
+    text-transform: capitalize;
+    border-radius: 10px;
+    text-transform: uppercase;
+    background: white;
+    box-shadow: -1px 1px 4px 0px #00000085;
+}
+.container input[type="submit"]{
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+/* @media(min-width: 425px){
+    .container input{
+        width: 35%;
+        text-transform: capitalize;
+    }
+} */
+>>>>>>> 775f3a45befd8d341cf6a08477463986ae2de806
