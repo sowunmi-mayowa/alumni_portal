@@ -3,31 +3,29 @@ session_start();
     require("../connection.php");
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-       $username = $_POST['username'];
-       $password = $_POST['password'];
-
-       if (!empty($username) && !empty($password) && !is_numeric($username)) {
-        
-        $query = "select * from admin where username = '$username' limit 1";
-
-        $result = mysqli_query($conn, $query);
-            if ($result && mysqli_num_rows($result) > 0) {
-                $user_data = mysqli_fetch_assoc($result);
-                if ($user_data['password'] == $password) {
-                    $_SESSION['user_id'] = $user_data['user_id'];
-                    header("location: admin.php");
-                    die;
-                }
-            }
-            header("Location: index.php");
-            die;
-       }
-    }
-
-       else{
-           echo "wrong username or password";   
-       }
-
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        if (!empty($username) && !empty($password) && !is_numeric($username)) {
+         
+         $query = "select * from `admin` where username = '$username' limit 1";
+ 
+         $result = mysqli_query($conn, $query);
+         if ($result && mysqli_num_rows($result) > 0) {
+             $user_data = mysqli_fetch_assoc($result);
+             if ($user_data['password'] == $password) {
+                 $_SESSION['user_id'] = $user_data['user_id'];
+                 header("location: admin.php");
+                 die;
+             }
+         }
+         header("Location: index.php");
+         die;
+         echo "wrong username or password";
+         }
+         else{
+             echo "wrong username or password";   
+         }
+     }
        
 ?>
 <!DOCTYPE html>
@@ -89,7 +87,7 @@ session_start();
    <div class="test-bg" style="height: 100vh;">
    <header>
         <div class="container">
-            <img src="../bgs/header-logo.png" alt="ilaro logo" >
+            <img src="https://federalpolyilaro.edu.ng/images/header-logo.png" alt="ilaro logo" >
         </div>
     </header>
 

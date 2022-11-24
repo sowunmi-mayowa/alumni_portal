@@ -34,9 +34,8 @@
     color: white;
     cursor: pointer;
 }
-/* @media(min-width: 425px){
+@media(max-width: 600px){
     .container input{
-        width: 35%;
-        text-transform: capitalize;
+        width: 70%;
     }
-} */
+}

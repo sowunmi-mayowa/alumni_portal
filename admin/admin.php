@@ -62,7 +62,7 @@
     <div id="navigation">
 		<nav>
 			<div class="name">
-                <img src="../bgs/header-logo.png" alt="poly logo" style="max-width: 300px;">
+                <img src="https://federalpolyilaro.edu.ng/images/header-logo.png" alt="poly logo" style="max-width: 300px;">
             </div>
 			<div>
 				<ul class="navs">

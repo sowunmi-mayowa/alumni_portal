@@ -19,6 +19,11 @@
 		color: white;
 		cursor: pointer;
 	}
+	@media(max-width: 600px){
+		#search-output input{
+			width: 70%;
+		}
+	}
 </style>
 
 <?php

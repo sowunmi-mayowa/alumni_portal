@@ -2,37 +2,37 @@
     require("../connection.php");
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-       $username = $_POST['username'];
-       $password = $_POST['password'];
-       function randomNum($length){
-        $text = "";
-        if ($length < 5) {
-            $length = 5;
-        }
-        $len = rand(4, $length);
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        function randomNum($length){
+         $text = "";
+         if ($length < 5) {
+             $length = 5;
+         }
+         $len = rand(4, $length);
+ 
+         for ($i=0; $i < $len; $i++) { 
+             $text .= rand(0,9);
+         }
+         return $text;
+     }
 
-        for ($i=0; $i < $len; $i++) { 
-            $text .= rand(0,9);
-        }
-        return $text;
-    }
-
-       if (!empty($username) && !empty($password) && !is_numeric($username)) {
+     if (!empty($username) && !empty($password) && !is_numeric($username)) {
         
 
-           $user_id = randomNum(20);
-           $query = "insert into admin (user_id, username, password) values ('$user_id', '$username', '$password')";
+        $user_id = randomNum(20);
+        $query = "INSERT INTO `admin`(`user_id`, `username`, `password`) values ('$user_id', '$username', '$password')";
 
-           mysqli_query($conn, $query);
-           header("Location: index.php");
-           die;
-       }
-       else{
-           echo "please enter some valid information";
-       }
-
-       
+        mysqli_query($conn, $query);
+        header("Location: index.php");
+        die;
     }
+    else{
+        echo "please enter some valid information";
+    }
+    echo "wrong username or password";
+    
+ }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,7 +93,7 @@
    <div class="test-bg" style="height: 100vh;">
    <header>
         <div class="container">
-            <img src="../bgs/header-logo.png" alt="ilaro logo" >
+            <img src="https://federalpolyilaro.edu.ng/images/header-logo.png" alt="ilaro logo" >
         </div>
     </header>
 

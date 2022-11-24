@@ -103,7 +103,7 @@
 	<div class="test-bg" style="height: 100vh;">
         <div class="header">
            <div class="logo"> 
-            <img src="http://localhost/project/bgs/FPI.jpg" alt="sch logo">
+            <img src="https://federalpolyilaro.edu.ng/images/header-logo.png" alt="sch logo">
            </div>
            <div class="content">
              <h1>the federal polytechnic ilaro</h1>
