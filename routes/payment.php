@@ -31,7 +31,7 @@
             "meta" => array(
                 "title" => "The federal polytechnic ilaro Alumni fee payment"
             ),
-            "redirect_url" => "https://fpi-alumni-payment.herokuapp.com/project/verify.php"
+            "redirect_url" => "http://localhost/project/verify.php"
         );
 
         //init url handler

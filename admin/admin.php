@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
     session_start();
     require("../connection.php");
@@ -82,8 +81,8 @@
             <form action="export.php" method="POST">
                 <input type="submit" value="Download CSV" name="export" class="btn btn-success px-4 py-2 my-4">
             </form>
-            <div class="table-responsive">
-            <table class="table">
+            <div class="table-responsive" style=" box-shadow: 0px 0px 20px 0px #0000008c;"s>
+            <table class="table" >
                 <tr>
                     <th>id</th>
                     <th>payment id</th>
